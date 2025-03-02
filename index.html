@@ -31,7 +31,7 @@
 
         <script>
             async function loadCSV() {
-                const response = await fetch("https://EryAzzurra.github.io/giochiamo2025/utenti.csv"); // Sostituisci con il tuo link
+                const response = await fetch("https://EryAzzurra/giochiamo2025/utenti.csv"); // Sostituisci con il tuo link
                 const text = await response.text();
                 return text.split("\n").map(row => row.split(",")); // Converte il CSV in array
             }
