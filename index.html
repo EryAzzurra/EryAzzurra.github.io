@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fanta Prof - Login</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Log In</h1>
+            <div id="login-container">
+                <input type="text" id="username" placeholder="Nome Utente" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button onclick="login()">Accedi</button>
+                <a href="https://forms.gle/3AXofpJrbp1B55aZA"><button>Registrati</button></a>
+                <p id="message"></p>
+
+            </div>
+
+            <div id="dashboard" style="display: none;">
+                <h2>Benvenuto! 🎉</h2>
+                <button onclick="logout()">Esci</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy;2024 Fanta Prof - Creato da Daka Erika e Dingu Denis</p>
+        </footer>
+
+        <script>
+            async function loadCSV() {
+                const response = await fetch("https://tuo-username.github.io/repo/utenti.csv"); // Sostituisci con il tuo link
+                const text = await response.text();
+                return text.split("\n").map(row => row.split(",")); // Converte il CSV in array
+            }
+
+            async function login() {
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const users = await loadCSV();
+
+                let validUser = users.some(row => row[0] === username && row[1] === password);
+
+                if (validUser) {
+                    document.getElementById("login-container").style.display = "none";
+                    document.getElementById("dashboard").style.display = "block";
+                    document.getElementById("message").innerText = "";
+                } else {
+                    document.getElementById("message").innerText = "Nome utente o password errati!";
+                }
+            }
+
+            function logout() {
+                document.getElementById("login-container").style.display = "block";
+                document.getElementById("dashboard").style.display = "none";
+            }
+
+            function register() {
+                alert("Verrai reindirizzato a Google Forms poichè l'accesso deve essere verificato manualmente dagli sviluppatori. Compilando il modulo acconsenti che sviluppatori ti inviino una mail con le tue credenziali\nClicca qui: ");
+            }
+        </script>
+    </body>
+</html>

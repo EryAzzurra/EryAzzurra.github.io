@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #2C3E5B;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: #5B89AE;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    width: 400px; /* Adattabile a schermi piccoli */
+    max-width: 300px; /* Larghezza massima */
+    margin: 50px auto; /* Centra orizzontalmente */
+    padding: 30px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra anche verticalmente */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Rendi il layout responsive */
+@media (max-width: 400px) {
+    .container {
+        width: 95%; /* Più largo su schermi molto piccoli */
+    }
+}
