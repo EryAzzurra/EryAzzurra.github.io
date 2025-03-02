@@ -26,7 +26,7 @@
         </div>
 
         <footer>
-            <p>&copy;2024 Fanta Prof - Creato da Daka Erika e Dingu Denis</p>
+            <p>&copy;2025 Fanta Prof - Creato da Daka Erika e Dingu Denis</p>
         </footer>
 
         <script>
@@ -41,7 +41,7 @@
                 const password = document.getElementById("password").value;
                 const users = await loadCSV();
 
-                let validUser = users.some(row => row[0] === username && row[1] === password);
+                let validUser = users.some(row => row[0].trim() === username && row[1].trim() === password);
 
                 if (validUser) {
                     document.getElementById("login-container").style.display = "none";
